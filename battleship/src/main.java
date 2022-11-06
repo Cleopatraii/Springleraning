@@ -1,28 +1,36 @@
 import game.Game;
 import network.Network;
+import GUI.Window;
 
+import javax.swing.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Position;
+import javax.swing.text.View;
+import java.awt.*;
 import java.util.Scanner;
 
 public class main {
     public static void main(String[] argv){
-        Game game = Game.getInstance();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("[h]ost or [c]lient?");
-        String input = scanner.next();
-        if (input.equals("h")) {
-            game.playerName = "host";
-            game.Semester = 5;
-            game.network = new Network();
-        } else if (input.equals("c")) {
-            game.playerName = "client";
-            game.Semester = 2;
-            game.network = new Network("127.0.0.1");
-        }
-        System.out.println("PlayerName: "+game.playerName);
-        System.out.println("OpponentName: "+game.opponentName);
-        System.out.println("Semester: "+game.Semester);
-        while(true) {
-            game.network.send(scanner.nextLine());
-        }
+
+        Window window = new Window();
+
+        window.setPreferredSize(new Dimension(window.WIDTH * window.SCALE, window.HEIGHT * window.SCALE));
+        window.setMaximumSize(new Dimension(window.WIDTH * window.SCALE, window.HEIGHT * window.SCALE));
+        window.setMinimumSize(new Dimension(window.WIDTH * window.SCALE, window.HEIGHT * window.SCALE));
+
+        JFrame frame = new JFrame(window.TITLE);
+        JPanel panel = new JPanel();
+        JButton startbutton = new JButton("Spiele gegen die KI");
+        panel.add(startbutton);
+        frame.add(panel);
+
+        frame.add(window);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+
+        window.start();
     }
 }
