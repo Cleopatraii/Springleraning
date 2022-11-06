@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class Game {
     //Attribut für Singleton
-    private static Game instance = new Game();
+    private static Game instance;
     //weitere Attribute:
     private String  playername;
     private String opponentname;
@@ -28,7 +28,10 @@ public class Game {
     private Game() {
     }
 
-    public Game getInstance() {
+    public static Game getInstance() {
+        if (instance == null) {
+            instance = new Game();
+        }
         return instance;
     }
 

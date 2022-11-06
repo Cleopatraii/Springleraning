@@ -27,11 +27,11 @@ public class Network {
             clientSocket = serverSocket.accept();
             out = new PrintWriter(clientSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            out.println(messageBuilder.build("HELLO",apiVersion,game.Semester,game.playerName));
+            out.println(messageBuilder.build("HELLO",apiVersion,game.getSemester(),game.getPlayerfield()));
             String[] helloAck = messageBuilder.split(in.readLine());
             if (helloAck[0].equals("HELLO_ACK") && Integer.parseInt(helloAck[1])<= apiVersion) {
-                game.Semester = Integer.min(game.Semester, Integer.parseInt(helloAck[2]));
-                game.opponentName = helloAck[3];
+                game.setSemester(Integer.min(game.getSemester(), Integer.parseInt(helloAck[2])));
+                game.setOpponentname(helloAck[3]);
                 Thread networklistener = new networkListener();
                 networklistener.start();
             } else {
@@ -60,9 +60,9 @@ public class Network {
             String[] hello = messageBuilder.split(in.readLine());
             if (hello[0].equals("HELLO")) {
                 apiVersion = Integer.min(apiVersion, Integer.parseInt(hello[1]));
-                game.Semester = Integer.min(game.Semester, Integer.parseInt(hello[2]));
-                game.opponentName = hello[3];
-                out.println(messageBuilder.build("HELLO_ACK",apiVersion,game.Semester,game.playerName));
+                game.setSemester(Integer.min(game.getSemester(), Integer.parseInt(hello[2])));
+                game.setOpponentname(hello[3]);
+                out.println(messageBuilder.build("HELLO_ACK",apiVersion,game.getSemester(),game.getPlayername()));
                 Thread networklistener = new networkListener();
                 networklistener.start();
             } else {
