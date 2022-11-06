@@ -68,6 +68,10 @@ public class Window extends Canvas implements Runnable {
             menu.render1(g);
 
         }
+        if (State == STATE.MENU3) {
+            menu.render2(g);
+
+        }
 
 
         //--------------------------------------------//
