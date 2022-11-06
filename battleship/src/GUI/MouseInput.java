@@ -21,14 +21,21 @@ public class MouseInput implements MouseListener {
         //Play Button
         if (mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) {
             if(my >= 250 && my <= 300) {
-                Window.State = Window.STATE.GAME;
+                Window.State = Window.STATE.MENU2;
             }
         }
 
         //Quit Button
-        if (mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) {
+        if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU) {
             if(my >= 450 && my <= 500) {
                 System.exit(1);
+            }
+        }
+
+        //Return Button
+        if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU2) {
+            if (my >= 450 && my <= 500) {
+                Window.State = Window.STATE.MENU;
             }
         }
     }

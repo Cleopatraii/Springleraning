@@ -62,6 +62,11 @@ public class Window extends Canvas implements Runnable {
         g.drawImage(player, 100, 100, this);
         if (State == STATE.MENU) {
             menu.render(g);
+
+        }
+        if (State == STATE.MENU2) {
+            menu.render1(g);
+
         }
 
 
@@ -86,6 +91,9 @@ public class Window extends Canvas implements Runnable {
         MENU,
         GAME,
         MENU2,
+        //Host Connect Ansicht
+        MENU3
+        //Connect Anischt mit IP Eingabe
     }
 
     public static STATE State = STATE.MENU;
