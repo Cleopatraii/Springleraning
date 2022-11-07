@@ -21,8 +21,8 @@ public class Game {
     private int[][] oppenentfield;
     private Ship[] ships;
     public Network network;
-    public Window view;
-    // public Gamelogic gamelogic;
+    public View view;
+    public Gamelogic gamelogic;
 
     //Konstruktur und Methode für Singleton:
     private Game() {
