@@ -41,6 +41,7 @@ public class Window extends Canvas implements Runnable {
     }
 
     private void tick() {
+        ship.tick();
     }
 
     /**
@@ -55,11 +56,7 @@ public class Window extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
         //--------------------------------------------//
-        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-        g.setColor(Color.black);
-        g.fillRect(0, 0, 800, 800);
-        g.drawImage(background, 0, 0, getWidth(), getHeight(), null);
-        g.drawImage(player, 100, 100, this);
+        g.drawImage(backgroundMenu, 0, 0, getWidth(), getHeight(), null);
         if (State == STATE.MENU) {
             menu.render(g);
 
@@ -72,7 +69,12 @@ public class Window extends Canvas implements Runnable {
             menu.render2(g);
 
         }
-
+        if (State == STATE.GAME) {
+            g.drawImage(image, 0,0, getWidth(), getHeight(), this);
+            g.setColor(Color.white);
+            g.fillRect(0,0,getWidth(),getHeight());
+            ship.render(g);
+        }
 
         //--------------------------------------------//
         g.dispose();
@@ -88,9 +90,7 @@ public class Window extends Canvas implements Runnable {
     private Thread thread;
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private BufferedImage spriteSheet = null;
-    private BufferedImage background = null;
-    private BufferedImage player;
-
+    private BufferedImage backgroundMenu = null;
     public enum STATE {
         MENU,
         GAME,
@@ -101,19 +101,19 @@ public class Window extends Canvas implements Runnable {
     }
 
     public static STATE State = STATE.MENU;
-
+    private Ship ship;
     public void init() {
         requestFocus();
         BufferedImageLoader loader = new BufferedImageLoader();
         try {
-            background = loader.loadImage("/hintergrund.png");
+            backgroundMenu = loader.loadImage("/hintergrund.png");
             spriteSheet = loader.loadImage("/bluedot.png");
         } catch (IOException e) {
             e.printStackTrace();
         }
         menu = new Menu();
         SpriteSheet ss = new SpriteSheet(spriteSheet);
-        player = ss.grabImage(1, 1, 32, 32);
+        ship = new Ship(100,100, this);
 
         this.addMouseListener(new MouseInput());
     }
@@ -137,4 +137,9 @@ public class Window extends Canvas implements Runnable {
         }
         System.exit(1);
     }
+
+    public BufferedImage getSpriteSheet() {
+        return spriteSheet;
+    }
+
 }

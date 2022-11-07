@@ -16,6 +16,7 @@ public class View {
     public Point playerTurn(){
         //TODO Methode füllen >>GUI
         //TODO return nicht vergessen >>GUI
+        return null;
     }
     //Methode zur Freigabe zum Setzen der Schiffsfelder
     public void startPrep(){

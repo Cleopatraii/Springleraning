@@ -23,7 +23,6 @@ public class main {
         JButton startbutton = new JButton("Spiele gegen die KI");
         panel.add(startbutton);
         frame.add(panel);
-
         frame.add(window);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

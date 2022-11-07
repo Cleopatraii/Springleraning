@@ -39,6 +39,13 @@ public class MouseInput implements MouseListener {
             }
         }
 
+        //Computer Button
+        if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU) {
+            if(my >= 350 && my <= 400) {
+                Window.State = Window.STATE.GAME;
+            }
+        }
+
         //Return Button Menu2
         if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU2) {
             if (my >= 450 && my <= 500) {
