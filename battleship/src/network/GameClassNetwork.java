@@ -1,4 +1,4 @@
-package game;
+package network;
 
 /**
  * Network.java
@@ -7,13 +7,13 @@ package game;
 //TODO Kommentare überarbeiten >>Netzwerk
 import java.awt.*;
 
-public class Network {
+public class GameClassNetwork {
     //Konstruktor ...
-    public Network(){
+    public GameClassNetwork(){
         //TODO Methode füllen >>Netzwerk
     }
     //Konstruktor ...
-    public Network(String ip){
+    public GameClassNetwork(String ip){
         //TODO Methode füllen >>Netzwerk
     }
     //Methode zur Weitergabe Spielende-Information

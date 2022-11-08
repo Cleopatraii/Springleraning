@@ -1,7 +1,8 @@
 package game;
 
+import GUI.GameClassView;
+import gameLogic.GameClassGamelogic;
 import network.Network;
-import GUI.Window;
 
 /**
  * Game.java
@@ -20,9 +21,9 @@ public class Game {
     private int[][] playerfield;
     private int[][] oppenentfield;
     private Ship[] ships;
-    public Network network;
-    public View view;
-    public Gamelogic gamelogic;
+    public Network network; //TODO Hier muss die Verbindung zu GameClassNetwork. Bei Umsetzung allerdings Fehler in Network.java >>In Gruppe lösen.
+    public GameClassView view;
+    public GameClassGamelogic gamelogic;
 
     //Konstruktur und Methode für Singleton:
     private Game() {

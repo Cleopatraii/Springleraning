@@ -1,13 +1,15 @@
-package game;
+package gameLogic;
 
 /**
  * Gamelogic.java
  * Klasse als Verbindungsglied zum Programmteil Game-Logik
  */
 //TODO Kommentare überarbeiten >>GameLogik
+import game.Ship;
+
 import java.awt.*;
 
-public class Gamelogic {
+public class GameClassGamelogic {
     //Methode zur Überprüfung Regeln und Weitergabe in Shiparray
     public boolean placeShip(Ship ships){
         //TODO Methode füllen >>GameLogik

@@ -1,4 +1,4 @@
-package game;
+package GUI;
 
 /**
  * View.java
@@ -7,7 +7,7 @@ package game;
 //TODO Kommentare überarbeiten >>GUI
 import java.awt.*;
 
-public class View {
+public class GameClassView {
     //Methode zum Aktualisieren des Schiffsplanes
     public void updateView(){
         //TODO Methode füllen >>GUI
