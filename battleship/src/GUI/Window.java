@@ -1,5 +1,7 @@
 package GUI;
 
+import game.Game;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -41,7 +43,7 @@ public class Window extends Canvas implements Runnable {
     }
 
     private void tick() {
-        ship.tick();
+        gamefield.tick();
     }
 
     /**
@@ -73,7 +75,7 @@ public class Window extends Canvas implements Runnable {
             g.drawImage(image, 0,0, getWidth(), getHeight(), this);
             g.setColor(Color.white);
             g.fillRect(0,0,getWidth(),getHeight());
-            ship.render(g);
+            gamefield.render(g);
         }
 
         //--------------------------------------------//
@@ -93,6 +95,7 @@ public class Window extends Canvas implements Runnable {
     private BufferedImage backgroundMenu = null;
     public enum STATE {
         MENU,
+        //Menu Player Computer
         GAME,
         MENU2,
         //Host Connect Ansicht
@@ -101,7 +104,7 @@ public class Window extends Canvas implements Runnable {
     }
 
     public static STATE State = STATE.MENU;
-    private Ship ship;
+    private Gamefield gamefield;
     public void init() {
         requestFocus();
         BufferedImageLoader loader = new BufferedImageLoader();
@@ -113,7 +116,7 @@ public class Window extends Canvas implements Runnable {
         }
         menu = new Menu();
         SpriteSheet ss = new SpriteSheet(spriteSheet);
-        ship = new Ship(100,100, this);
+        gamefield = new Gamefield(100,100, this);
 
         this.addMouseListener(new MouseInput());
     }

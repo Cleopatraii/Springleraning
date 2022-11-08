@@ -2,12 +2,12 @@ package GUI;
 
 import java.awt.*;
 import java.awt.image.*;
-public class Ship {
+public class Gamefield {
 
     private double x;
     private double y;
     private BufferedImage ship;
-    public Ship(double x, double y, Window window){
+    public Gamefield(double x, double y, Window window){
         this.x = x;
         this.y = y;
 

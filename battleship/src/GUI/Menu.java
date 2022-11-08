@@ -1,4 +1,5 @@
 package GUI;
+import javax.swing.*;
 import java.awt.*;
 
 public class Menu {
@@ -54,6 +55,7 @@ public class Menu {
         Rectangle playerbutton =  new Rectangle(Window.WIDTH / 2 + 20, 250, 400,50);
         Rectangle computerbutton =  new Rectangle(Window.WIDTH / 2 + 20, 350, 400,50);
         Rectangle quitbutton = new Rectangle(Window.WIDTH / 2 + 20, 450 , 400, 50);
+
 
         Font fnt1 = new Font("Arial", Font.BOLD, 30);
         g.setFont(fnt1);

@@ -10,7 +10,7 @@ public class MouseInput implements MouseListener {
 
     }
 
-    public void mousePressed(MouseEvent e) {
+    public void mouseReleased(MouseEvent e) {
         int mx = e.getX();
         int my = e.getY();
         /**
@@ -18,10 +18,20 @@ public class MouseInput implements MouseListener {
          *         Rectangle computerbutton =  new Rectangle(Game.WIDTH / 2 + 20, 350, 400,50);
          *         Rectangle quitbutton = new Rectangle(Game.WIDTH / 2 + 20, 450 , 400, 50);
          */
+
+        //Host Button
+        if (((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU2)) {
+            if(my >= 250 && my <= 300) {
+                Window.State = Window.STATE.GAME;
+                return;
+            }
+        }
+
         //Play Button
         if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU) {
             if(my >= 250 && my <= 300) {
                 Window.State = Window.STATE.MENU2;
+                return;
             }
         }
 
@@ -29,6 +39,7 @@ public class MouseInput implements MouseListener {
         if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU2) {
             if(my >= 350 && my <= 400) {
                 Window.State = Window.STATE.MENU3;
+                return;
             }
         }
 
@@ -36,6 +47,7 @@ public class MouseInput implements MouseListener {
         if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU) {
             if(my >= 450 && my <= 500) {
                 System.exit(1);
+                return;
             }
         }
 
@@ -43,13 +55,16 @@ public class MouseInput implements MouseListener {
         if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU) {
             if(my >= 350 && my <= 400) {
                 Window.State = Window.STATE.GAME;
+                return;
             }
         }
+
 
         //Return Button Menu2
         if ((mx >= Window.WIDTH / 2 + 20 && mx <= Window.WIDTH / 2 + 420) && Window.State == Window.STATE.MENU2) {
             if (my >= 450 && my <= 500) {
                 Window.State = Window.STATE.MENU;
+                return;
             }
         }
 
@@ -62,7 +77,7 @@ public class MouseInput implements MouseListener {
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void mousePressed(MouseEvent e) {
 
     }
 
