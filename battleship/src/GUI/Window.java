@@ -116,7 +116,7 @@ public class Window extends Canvas implements Runnable {
         }
         menu = new Menu();
         SpriteSheet ss = new SpriteSheet(spriteSheet);
-        gamefield = new Gamefield(100,100, this);
+        gamefield = new Gamefield(WIDTH,HEIGHT, this);
 
         this.addMouseListener(new MouseInput());
     }
