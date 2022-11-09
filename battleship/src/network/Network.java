@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import network.Receive;
 
 public class Network {
     private ServerSocket serverSocket;
@@ -85,6 +86,7 @@ class networkListener extends Thread {
         while(true) {
             try {
                 incoming = game.network.in.readLine();
+                new Receive().receive(incoming);
                 if (!incoming.isEmpty()) System.out.println(incoming);
             } catch (IOException e) {
                 System.out.println(e);
