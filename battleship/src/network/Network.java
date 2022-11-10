@@ -69,6 +69,11 @@ public class Network {
             } else {
                 if (!hello[0].equals("HELLO")) out.println(messageBuilder.build("ERR","-1", "Expected HELLO, received " + hello[0]));
             }
+
+            InputStreamReader isr = new InputStreamReader(clientSocket.getInputStream());
+            IOManager.getInstance().setBr(isr);
+            IOManager.getInstance().setPs(clientSocket.getOutputStream());
+
         } catch (IOException e) {
             System.out.println("Could not establish connection: " + e);
         }
@@ -86,7 +91,7 @@ class networkListener extends Thread {
         while(true) {
             try {
                 incoming = game.network.in.readLine();
-                new Receive().receive(incoming);
+             //   new Receive().receive(incoming);
                 if (!incoming.isEmpty()) System.out.println(incoming);
             } catch (IOException e) {
                 System.out.println(e);
