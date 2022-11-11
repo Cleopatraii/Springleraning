@@ -1,8 +1,8 @@
 package gameLogic;
 
-/**
- * Gamelogic.java
- * Klasse als Verbindungsglied zum Programmteil Game-Logik
+/*
+  Gamelogic.java
+  Klasse als Verbindungsglied zum Programmteil Game-Logik
  */
 //TODO Kommentare überarbeiten >>GameLogik
 import game.Game;
@@ -16,21 +16,27 @@ public class GameClassGamelogic {
         //Deklaratio Variablen
         Point[] position=ships.getPosition();
         int[][] fieldarray= Game.getInstance().getPlayerfield();
-        int x = 0;
-        int y = 0;
+        int x;
+        int y;
         //Regelüberprüfung
-        for (int i = 0;i<position.length; i++){     //Schleife für position
-            x = position[i].x;
-            y = position[i].y;
-            for(int fx = -1;fx<2;fx++){  //Schleife für x
-                for (int fy = -1;fy<2;fy++){     //Schleife für y
-                    if(fieldarray[y+fy][x+fx]==1) return false;
+        for (Point point : position) {     //Schleife für position
+            x = point.x;
+            y = point.y;
+            for (int fx = -1; fx < 2; fx++) {  //Schleife für x
+                for (int fy = -1; fy < 2; fy++) {     //Schleife für y
+                    if (fieldarray[y + fy][x + fx] == 1) return false;
                 }
             }
         }
         //Position an playerfield übergeben
-        for (int j = 0; j<position.length;j++){
-            Game.getInstance().setPlayerfield(position[j].y,position[j].x,1);
+        for (Point point : position) {
+            Game.getInstance().setPlayerfield(point.y, point.x, 1);
+        }
+
+        //Position an Ship-Array übergeben
+        Ship[] shipArray=Game.getInstance().getShips();
+        for (int k = 0; k<shipArray.length; k++){
+            if (shipArray[k].getName().equals(ships.getName()))Game.getInstance().changeShip(k,position);
         }
 
         return true;
