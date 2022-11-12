@@ -12,8 +12,8 @@ import java.net.Socket;
 import network.Receive;
 
 public class Network {
-    private ServerSocket serverSocket;
-    private Socket clientSocket;
+    ServerSocket serverSocket;
+    Socket clientSocket;
     PrintWriter out;
     BufferedReader in;
     private Game game;
@@ -82,15 +82,18 @@ public class Network {
 
     //Methode zur Weitergabe Spielende-Information
     public void end(boolean win){
-        //TODO Methode füllen >>Netzwerk
+        //only allowed to end Session if host
+        if(serverSocket != null) {
+            send(messageBuilder.build("END", win ? "host" : "client"));
+        }
     }
     //Methode zu ...
-    public int fire(Point position){
-        //TODO Methode füllen >>Netzwerk
-        return 0;           //TODO Return-Wert sinnvoll ersetzen >> Netzwerk
+    public void fire(Point position){
+        send(messageBuilder.build("FIRE", position.x, position.y));
+        //TODO FIRE_ACK and decide if callback or no feedback to GameLogic
     }
     //Methode zu ...
-    public void shipPlace(){
+    public void shipPlaced(){
         //TODO Methode füllen >>Netzwerk
     }
 

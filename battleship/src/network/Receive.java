@@ -23,38 +23,38 @@ public class Receive implements Runnable{
 
 
                 if(command.equals("START")){
-                    new Resolve().start(readLine);
+                    Resolve.start(readLine);
                 }
 
                 if(command.equals("START_ACK")){
-                    new Resolve().startAck(readLine);
+                    Resolve.startAck(readLine);
                 }
 
                 if(command.equals("READY_PING")){
-                    new Resolve().readyPing(readLine);
+                    Resolve.readyPing(readLine);
                 }
 
                 if(command.equals("READY_CHK")){
-                    new Resolve().readyCheck(readLine);
+                    Resolve.readyCheck(readLine);
                 }
 
                 if(command.equals("BEGIN")){
-                    new Resolve().beginAck(readLine);
+                    Resolve.beginAck(readLine);
                 }
 
                 if(command.equals("BEGIN_ACK")){
-                    new Resolve().beginAck(readLine);
+                    Resolve.beginAck(readLine);
                 }
 
                 if(command.equals("FIRE")){
-                    new Resolve().fire(readLine);
+                    Resolve.fire(readLine);
                 }
 
                 if(command.equals("FIRE_ACK")){
-                    new Resolve().fireAck(readLine);
+                    Resolve.fireAck(readLine);
                 }
                 if(command.equals("END")){
-                    new Resolve().endAck(readLine);
+                    Resolve.endAck(readLine);
                 }
 
 

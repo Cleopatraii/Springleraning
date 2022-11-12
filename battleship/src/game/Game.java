@@ -21,7 +21,7 @@ public class Game {
     private int[][] playerfield;
     private int[][] oppenentfield;
     private Ship[] ships;
-    public Network network; //TODO Hier muss die Verbindung zu GameClassNetwork. Bei Umsetzung allerdings Fehler in Network.java >>In Gruppe lösen.
+    public Network network;
     public GameClassView view;
     public GameClassGamelogic gamelogic;
 
@@ -53,7 +53,7 @@ public class Game {
         return playerfield;
     }
 
-    public int[][] getOppenentfield() {
+    public int[][] getOpponentfield() {
         return oppenentfield;
     }
 
