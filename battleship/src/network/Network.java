@@ -2,6 +2,7 @@ package network;
 
 import game.Game;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -78,6 +79,21 @@ public class Network {
             System.out.println("Could not establish connection: " + e);
         }
     }
+
+    //Methode zur Weitergabe Spielende-Information
+    public void end(boolean win){
+        //TODO Methode füllen >>Netzwerk
+    }
+    //Methode zu ...
+    public int fire(Point position){
+        //TODO Methode füllen >>Netzwerk
+        return 0;           //TODO Return-Wert sinnvoll ersetzen >> Netzwerk
+    }
+    //Methode zu ...
+    public void shipPlace(){
+        //TODO Methode füllen >>Netzwerk
+    }
+
     public void send(String input) {
         out.println(input);
     }
