@@ -39,11 +39,11 @@ public class Receive implements Runnable{
                 }
 
                 if(command.equals("BEGIN")){
-                    Resolve.beginAck(readLine);
+                    //Resolve.beginAck(readLine);
                 }
 
                 if(command.equals("BEGIN_ACK")){
-                    Resolve.beginAck(readLine);
+                    //Resolve.beginAck(readLine);
                 }
 
                 if(command.equals("FIRE")){
